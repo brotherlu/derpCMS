@@ -15,6 +15,10 @@ switch ($action){
         break;
     }
 
+/*
+ * @brief Function for setting up the archive page
+ */
+
 function archive(){
     $results=array();
     $data = Project::getList();
@@ -25,6 +29,10 @@ function archive(){
     require(TEMPLATE_PATH."/archive.template.php");
     
     }
+
+/*
+ * @brief Function to prepare the Project Page
+ */
 
 function viewProject(){
     if( !isset($_GET['projectID']) || !$_GET['projectID'] ){
@@ -39,6 +47,10 @@ function viewProject(){
     require(TEMPLATE_PATH."/project.template.php");
     
     }
+
+/*
+ * @brief Function to prepare the homepage
+ */
 
 function homepage(){
     $results = array();
