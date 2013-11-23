@@ -12,7 +12,7 @@ date_default_timezone_set("America/Montreal");
 
 define("DB","mysql:host=localhost,dbname=derpcms");
 define("DB_USERNAME","root");
-define("DB_PASSWORD","sephiroth");
+define("DB_PASSWORD",readfile("dbpasswd"));
 define("CLASS_PATH","classes");
 define("TEMPLATE_PATH","template");
 define("HOMEPAGE_NUM_ARTICLES",5);
