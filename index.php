@@ -26,7 +26,7 @@ function archive(){
     $results['totalRows'] = $data['totalRows'];
     $results['pageTitle'] = "Projects";
     
-    require(TEMPLATE_PATH."/archive.template.php");
+    require(TEMPLATE_PATH."/archive.view.php");
     
     }
 
@@ -42,9 +42,9 @@ function viewProject(){
     
     $results = array();
     $results['project'] = Project::getById( (int)$_GET['projectID'] );
-    $results['pageTitle'] = result['project']->title;
+    $results['pageTitle'] = $results['project'] -> title;
     
-    require(TEMPLATE_PATH."/project.template.php");
+    require(TEMPLATE_PATH."/project.view.php");
     
     }
 
@@ -59,6 +59,6 @@ function homepage(){
     $results['totalRows'] = $data['totalRows'];
     $results['pageTitle'] = "HomePage";
     
-    require(TEMPLATE_PATH."/homepage.template.php");
+    require(TEMPLATE_PATH."/homepage.view.php");
     
     }
