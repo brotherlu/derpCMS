@@ -5,7 +5,7 @@
         <p>You are logged in as <b><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="admin.php?action=logout"?>Log out</a></p>
       </div>
  
-      <h1>All Articles</h1>
+      <h1>All Posts</h1>
  
 <?php if ( isset( $results['errorMessage'] ) ) { ?>
         <div class="errorMessage"><?php echo $results['errorMessage'] ?></div>
@@ -19,15 +19,15 @@
       <table>
         <tr>
           <th>Publication Date</th>
-          <th>Article</th>
+          <th>Post</th>
         </tr>
  
-<?php foreach ( $results['articles'] as $article ) { ?>
+<?php foreach ( $results['posts'] as $post ) { ?>
  
-        <tr onclick="location='admin.php?action=editArticle&amp;articleId=<?php echo $article->id?>'">
-          <td><?php echo date('j M Y', $article->publicationDate)?></td>
+        <tr onclick="location='admin.php?action=editArticle&amp;articleId=<?php echo $post->id?>'">
+          <td><?php echo date('j M Y', $post->publicationDate)?></td>
           <td>
-            <?php echo $article->title?>
+            <?php echo $post->title?>
           </td>
         </tr>
  
@@ -37,6 +37,6 @@
  
       <p><?php echo $results['totalRows']?> article<?php echo ( $results['totalRows'] != 1 ) ? 's' : '' ?> in total.</p>
  
-      <p><a href="admin.php?action=newArticle">Add a New Article</a></p>
+      <p><a href="admin.php?action=newPost">Add a New Post</a></p>
  
 <?php include "templates/include/footer.php" ?>

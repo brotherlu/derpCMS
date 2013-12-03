@@ -129,7 +129,7 @@ function editProject(){
             header("Location: admin.php");
             
         } else {
-            $results['project']=Project::getById((int)$_GET['projectID']);
+            $results['post']=Project::getById((int)$_GET['projectID']);
             require("admin/editProject.view.php");
         }
  
@@ -157,7 +157,7 @@ function delProject(){
  function listProjects(){
      $results=array();
      $data = Project::getList();
-     $results['projects']=$data['results'];
+     $results['posts']=$data['results'];
      $results['totalRows']=$data['totalRows'];
      $results['pageTitle']="All Projects";
      
