@@ -52,12 +52,12 @@ function login(){
         /* USERNAME AND PASSWORD MISSMATCH include the loginform view*/
         } else {
             $results['errorMessage'] = "Incorrect Username and/or Password. Please Try Again";
-            require(TEMPLATE_PATH."/admin/loginform.view.php")
+            require("admin/loginform.view.php");
             }
             
     /* If no login then include the loginform view */
     } else {
-        require(TEMPLATE_PATH."/admin/loginform.view.php");
+        require("admin/loginform.view.php");
     }
     
     }
@@ -91,7 +91,7 @@ function newProject(){
     
     /* If changes are canceled */
     
-    } elif (isset($_POST['cancel'])){
+    } elseif (isset($_POST['cancel'])){
         
         header("Location: admin.php");
     
@@ -99,7 +99,7 @@ function newProject(){
     
     } else {
         $results['project'] = new Project();
-        require( TEMPLATE_PATH."/admin/editProject.view.php");
+        require( "admin/editProject.view.php");
     }
     
 }
@@ -110,7 +110,7 @@ function newProject(){
  
 function editProject(){
     $results=array();
-    $results['pageTitle']="Edit Projecy";
+    $results['pageTitle']="Edit Project";
     $results['formAction'] = "editProject";
     
     if(isset($_POST['saveChanges'])){
@@ -130,7 +130,7 @@ function editProject(){
             
         } else {
             $results['project']=Project::getById((int)$_GET['projectID']);
-            require(TEMPLATE_PATH."/admin/editProject.view.php");
+            require("admin/editProject.view.php");
         }
  
  }
@@ -170,6 +170,6 @@ function delProject(){
         if($_GET['status']=="projectDeleted") $results['statusMessage']="Project Deleted";
     }
     
-    require(TEMPLATE_PATH."/admin/listProjects.view.php");
+    require("admin/listProjects.view.php");
 
 }
